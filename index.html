@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Innovation Hackathon — Idea Submission</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; }
+
+  .hero { background: #2d1b69; color: white; padding: 36px 0 32px; }
+  .hero-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: #a99de8; margin-bottom: 10px; }
+  .hero-title { font-size: 26px; font-weight: 600; line-height: 1.25; margin-bottom: 8px; }
+  .hero-sub { font-size: 14px; color: #c4bce8; line-height: 1.6; }
+  .hero-themes { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .theme-pill { font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); }
+
+  .form-wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  .mandatory-note { font-size: 11px; color: #888780; margin-bottom: 20px; }
+  .mandatory-note span { color: #c0392b; }
+
+  .section-card { background: white; border-radius: 12px; border: 1px solid #e8e6e0; margin-bottom: 20px; overflow: hidden; }
+  .section-head { padding: 16px 24px; border-bottom: 1px solid #f0eee8; display: flex; align-items: center; gap: 14px; }
+  .section-badge { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+  .section-label { font-size: 14px; font-weight: 600; color: #1a1a18; }
+  .section-desc { font-size: 11px; color: #888780; margin-top: 2px; }
+  .section-body { padding: 20px 24px; }
+
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+  label { display: block; font-size: 13px; font-weight: 500; color: #2c2c2a; margin-bottom: 4px; }
+  .req { color: #c0392b; margin-left: 2px; }
+  .hint { font-size: 11px; color: #888780; line-height: 1.5; margin-bottom: 6px; }
+  input[type=text], input[type=email], select, textarea {
+    width: 100%; background: #faf9f7; border: 1px solid #e0ddd6; border-radius: 8px;
+    padding: 9px 12px; font-size: 13px; color: #1a1a18; font-family: inherit;
+    transition: border-color .15s, box-shadow .15s; outline: none;
+  }
+  input[type=text]:focus, input[type=email]:focus, select:focus, textarea:focus {
+    border-color: #7B6FDB; box-shadow: 0 0 0 3px rgba(123,111,219,0.12); background: white;
+  }
+  select { height: 38px; cursor: pointer; }
+  textarea { resize: vertical; line-height: 1.6; }
+  .char-count { font-size: 10px; color: #888780; text-align: right; margin-top: 3px; }
+
+  .check-group, .radio-group { display: flex; flex-direction: column; gap: 8px; }
+  .check-opt, .radio-opt { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #444441; cursor: pointer; line-height: 1.5; padding: 7px 10px; border-radius: 7px; border: 1px solid #eceae4; transition: background .12s; }
+  .check-opt:hover, .radio-opt:hover { background: #f7f6f2; }
+  .check-opt input, .radio-opt input { margin-top: 2px; accent-color: #7B6FDB; flex-shrink: 0; }
+
+  .divider { height: 1px; background: #f0eee8; margin: 18px 0; }
+
+  .submit-row { text-align: right; margin-top: 8px; }
+  .btn-submit { background: #2d1b69; color: white; padding: 12px 36px; font-size: 14px; font-weight: 500; border: none; border-radius: 8px; cursor: pointer; transition: background .15s; }
+  .btn-submit:hover { background: #3d2880; }
+
+  .success { display: none; }
+  .success-card { background: white; border-radius: 12px; border: 1px solid #e8e6e0; padding: 48px 32px; text-align: center; }
+
+  @media (max-width: 560px) {
+    .field-row { grid-template-columns: 1fr; }
+    .hero-title { font-size: 20px; }
+    .form-wrap { padding: 20px 16px 48px; }
+    .section-body { padding: 16px; }
+    .section-head { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Accenture Products & Platforms · AI Innovation Hackathon</div>
+    <div class="hero-title">Idea Submission Form</div>
+    <div class="hero-sub">Submit your team's AI innovation idea across one of the four hackathon themes. All fields marked * are mandatory.</div>
+    <div class="hero-themes">
+      <span class="theme-pill">01 Agentic workflows with guardrails</span>
+      <span class="theme-pill">02 Context graphs & decision augmentation</span>
+      <span class="theme-pill">03 Data to commercial value</span>
+      <span class="theme-pill">04 Human experience reimagined</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <div class="mandatory-note"><span>*</span> Required field</div>
+
+  <div id="form-body">
+
+    <!-- SECTION A — Team -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-badge" style="background:#ede9fb;color:#3c3489">A</div>
+        <div><div class="section-label">Team information</div><div class="section-desc">Basic details about who is submitting this idea</div></div>
+      </div>
+      <div class="section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Team name <span class="req">*</span></label>
+            <input type="text" id="team-name" placeholder="e.g. Team Nexus">
+          </div>
+          <div class="field">
+            <label>Number of members <span class="req">*</span></label>
+            <select id="team-size">
+              <option value="">Select</option>
+              <option>2</option><option>3</option><option>4</option><option>5</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Team lead — full name <span class="req">*</span></label>
+            <input type="text" id="lead-name" placeholder="e.g. Priya Sharma">
+          </div>
+          <div class="field">
+            <label>Team lead — enterprise email <span class="req">*</span></label>
+            <input type="email" id="lead-email" placeholder="firstname.lastname@accenture.com">
+          </div>
+        </div>
+        <div class="field">
+          <label>Other team members — enterprise IDs <span class="req">*</span></label>
+          <div class="hint">One enterprise ID per line</div>
+          <textarea id="members" rows="4" placeholder="1. firstname.lastname@accenture.com&#10;2. firstname.lastname@accenture.com&#10;3. firstname.lastname@accenture.com"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION B — Idea -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-badge" style="background:#e4f7f0;color:#0f6e56">B</div>
+        <div><div class="section-label">Idea overview</div><div class="section-desc">What you are proposing to build</div></div>
+      </div>
+      <div class="section-body">
+        <div class="field">
+          <label>Idea title <span class="req">*</span></label>
+          <div class="hint">A short, memorable name for your solution (max 10 words)</div>
+          <input type="text" id="idea-title" placeholder="e.g. PolicyGuard — Agentic compliance workflow with OPA guardrails">
+        </div>
+        <div class="field">
+          <label>One-line pitch <span class="req">*</span></label>
+          <div class="hint">Complete this: "We are building [what] for [who] that [does what], resulting in [measurable outcome]."</div>
+          <textarea id="pitch" rows="3" placeholder="We are building ..."></textarea>
+        </div>
+        <div class="field">
+          <label>Problem statement <span class="req">*</span></label>
+          <div class="hint">Who experiences this problem? What does it cost them today (time, money, risk, quality)? Why hasn't it been solved yet? (max 200 words)</div>
+          <textarea id="problem" rows="6" placeholder="The problem we are solving is..." oninput="countWords(this,'wc-problem',200)"></textarea>
+          <div class="char-count"><span id="wc-problem">0</span> / 200 words</div>
+        </div>
+        <div class="field">
+          <label>Proposed solution <span class="req">*</span></label>
+          <div class="hint">What will you build? What does AI do in it? What does the user experience? What is the output? (max 250 words)</div>
+          <textarea id="solution" rows="7" placeholder="Our solution works by..." oninput="countWords(this,'wc-solution',250)"></textarea>
+          <div class="char-count"><span id="wc-solution">0</span> / 250 words</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION C — Theme -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-badge" style="background:#fef3e4;color:#854f0b">C</div>
+        <div><div class="section-label">Theme alignment</div><div class="section-desc">Which hackathon theme does your idea address</div></div>
+      </div>
+      <div class="section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Primary theme <span class="req">*</span></label>
+            <select id="theme">
+              <option value="">Select a theme</option>
+              <option value="01">01 — Agentic workflows with guardrails</option>
+              <option value="02">02 — Context graphs & decision augmentation</option>
+              <option value="03">03 — Data to commercial value</option>
+              <option value="04">04 — Human experience reimagined</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Industry / domain <span class="req">*</span></label>
+            <input type="text" id="domain" placeholder="e.g. Insurance underwriting / Public services">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION D — Feasibility -->
+    <div class="section-card">
+      <div class="section-head">
+        <div class="section-badge" style="background:#e4eef9;color:#185fa5">D</div>
+        <div><div class="section-label">Feasibility & build plan</div><div class="section-desc">Can this be built in the hackathon timeframe?</div></div>
+      </div>
+      <div class="section-body">
+        <div class="field">
+          <label>AI technologies your solution will use <span class="req">*</span></label>
+          <div class="hint">Select all that apply</div>
+          <div class="check-group">
+            <label class="check-opt"><input type="checkbox" name="tech"> Large language models (LLMs)</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Agentic frameworks (LangGraph, CrewAI, etc.)</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Retrieval-augmented generation (RAG)</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Knowledge / context graphs</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Policy-as-code / guardrail frameworks (OPA, Sentinel)</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Predictive / ML models</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Conversational AI / NLP</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Computer vision</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Spec-driven development (BMAD / DMAD)</label>
+            <label class="check-opt"><input type="checkbox" name="tech"> Other</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="field">
+          <label>Data source your solution will use <span class="req">*</span></label>
+          <div class="hint">Use of client data or any confidential / sensitive company data is strictly prohibited. Only publicly available or self-generated synthetic data is permitted.</div>
+          <div class="radio-group" style="margin-bottom:10px">
+            <label class="radio-opt"><input type="radio" name="data-src" value="public"> Publicly available dataset (name it below)</label>
+            <label class="radio-opt"><input type="radio" name="data-src" value="self-generated"> We will generate synthetic data during the hackathon</label>
+            <label class="radio-opt"><input type="radio" name="data-src" value="none"> No external data required</label>
+          </div>
+          <input type="text" id="data-name" placeholder="If public dataset — name it here (e.g. Kaggle UCI Bank Marketing Dataset)">
+        </div>
+        <div class="divider"></div>
+        <div class="field">
+          <label>Biggest technical risk <span class="req">*</span></label>
+          <div class="hint">What is the one thing most likely to stop this working in the hackathon timeframe? How will you handle it?</div>
+          <textarea id="tech-risk" rows="4" placeholder="The biggest risk is... Our mitigation is..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button class="btn-submit" onclick="submitForm()">Submit idea →</button>
+    </div>
+
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success" id="success-screen">
+    <div class="success-card">
+      <div style="width:64px;height:64px;background:#e8f7f1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a7a50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div style="font-size:22px;font-weight:600;color:#1a1a18;margin-bottom:8px">Idea submitted successfully</div>
+      <div style="font-size:14px;color:#888780;line-height:1.6;max-width:420px;margin:0 auto">Thank you for your submission. The organising team will review all ideas and notify shortlisted teams within 5 working days.</div>
+      <div style="display:inline-block;background:#f2f0fc;border:1px solid #d0caf4;border-radius:8px;padding:8px 24px;font-size:15px;font-weight:600;color:#3c3489;margin:20px 0;letter-spacing:.06em" id="ref-code"></div>
+      <div style="font-size:12px;color:#888780;margin-bottom:24px">Save this reference code for your records</div>
+      <div style="font-size:13px;color:#444441;line-height:1.8;max-width:420px;margin:0 auto">Top 10 shortlisted ideas will present to the judging panel for <strong>4–5 minutes + Q&A</strong>. AI Champions will mentor shortlisted teams.</div>
+      <div style="height:28px"></div>
+      <button onclick="resetForm()" style="background:white;border:1px solid #e0ddd6;color:#444441;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;">Submit another idea</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function countWords(el, countId, max) {
+    const words = el.value.trim() === '' ? 0 : el.value.trim().split(/\s+/).length;
+    const span = document.getElementById(countId);
+    span.textContent = words;
+    span.style.color = words > max ? '#c0392b' : '#888780';
+  }
+
+  function generateRef() {
+    const c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let r = 'APP-';
+    for (let i = 0; i < 8; i++) r += c[Math.floor(Math.random() * c.length)];
+    return r;
+  }
+
+  function submitForm() {
+    const required = ['team-name','team-size','lead-name','lead-email','members','idea-title','pitch','problem','solution','theme','domain','tech-risk'];
+    let missing = false;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (!el.value.trim()) {
+        el.style.borderColor = '#c0392b';
+        missing = true;
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+    const techChecked = document.querySelectorAll('input[name="tech"]:checked').length > 0;
+    const dataChecked = document.querySelectorAll('input[name="data-src"]:checked').length > 0;
+    if (!techChecked || !dataChecked) missing = true;
+    if (missing) { alert('Please complete all required fields before submitting.'); return; }
+    document.getElementById('form-body').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    document.getElementById('ref-code').textContent = generateRef();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    document.getElementById('success-screen').style.display = 'none';
+    document.getElementById('form-body').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
